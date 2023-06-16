@@ -27,6 +27,7 @@ const typeDefs = gql`
 
   type Query {
     getAllUsers(id: Int): [User]
+    getUserById(id: ID): User
   }
 
   type Mutation {
@@ -42,11 +43,13 @@ const typeDefs = gql`
 const resolvers = {
   Query: {
     getAllUsers: (parent, args) => {
-      if (args.id) {
-        return userData.filter((user) => user.id === args.id);
-      }
+      // if (args.id) {
+      //   return userData.filter((user) => user.id === args.id);
+      // }
       return userData;
     },
+    // getUserById: (_, args) => userData.find((user) => user.id == args.id),
+    getUserById: (_, {id}) => userData.find((user) => user.id == id),
   },
   Mutation: {
     createUser: (parent, args) => {
