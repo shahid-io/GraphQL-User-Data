@@ -64,7 +64,6 @@ const resolvers = {
 };
 
 const server = new ApolloServer({ typeDefs, resolvers });
-// server.applyMiddleware({ app, path: "/graphql" });
 
 async function startApolloServer() {
   await server.start();
@@ -81,6 +80,3 @@ startApolloServer().then(() => {
 /**
  * server code
  */
-// app.listen(ServerConfig.PORT, () => {
-//   console.log(`http//:localhost:${ServerConfig.PORT}`);
-// });
